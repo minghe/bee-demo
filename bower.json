@@ -1,0 +1,20 @@
+{
+    "name": "xcake-playground",
+    "version": "0.0.0",
+    "homepage": "https://github.com/abc-team/xcake-playground",
+    "authors": [
+        "文龙 <wenlong@taobao.com>"
+    ],
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "src/bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+    }
+}

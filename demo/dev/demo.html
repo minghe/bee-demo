@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>开发环境-简单demo</title>
+    <script src="http://g.tbcdn.cn/kissy/k/1.4.1/??seed.js,import-style.js" data-config="{combine:true}"></script>
+
+    <!-- 配置模块 -->
+    <script>
+        KISSY.config({
+            combine: true,
+            packages: [
+                {
+                    name: 'xcake-demo',
+                    base: '../../src',
+                    ignorePackageNameInUri: true,
+                    debug: true,
+                    combine:false
+                }
+            ]}
+        );
+    </script>
+</head>
+<body>
+
+<script>
+    KISSY.use('xcake-demo/pages/demo/', function(S, Page){
+        Page.init();
+    });
+</script>
+
+</body>
+</html>
