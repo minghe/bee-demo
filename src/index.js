@@ -7,4 +7,6 @@ KISSY.add('bee-demo/index',['./mods/header', './mods/article'], function(S, requ
     //初始化article模块
     var article = require('./mods/article');
     article.init();
+
+    return true;
 });

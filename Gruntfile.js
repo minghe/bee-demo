@@ -1,9 +1,9 @@
 module.exports = function (grunt) {
 
     grunt.initConfig({
-
         // 指定打包目录
         buildBase: 'build',
+        //源码目录
         srcBase: 'src',
 
         clean: {
@@ -40,18 +40,6 @@ module.exports = function (grunt) {
             }
         },
 
-        flexcombo: {
-            options: {
-                target:'.',
-                urls:'<%= path %>',
-                port:'8888',
-                servlet:'?',
-                separator:',',
-                charset:'utf8'
-            },
-            main: {}
-        },
-
         copy: {
             all: {
                 files: [
@@ -65,11 +53,6 @@ module.exports = function (grunt) {
             }
 
         },
-
-        bower: {
-            install: {}
-        },
-
         less: {
             options: {
                 paths: ['<%= srcBase %>']
@@ -129,14 +112,6 @@ module.exports = function (grunt) {
             }
         },
 
-        jshint: {
-            options: {
-                globals: 'KISSY',
-                jshintrc: true
-            },
-            files: ['<%=srcBase %>/app/**/*.js', '<%=srcBase %>/pages/**/*.js', '<%=srcBase %>/components/**/*.js']
-        },
-
         watch: {
             less: {
                 files: ['<%= srcBase %>/**/*.less'],
@@ -193,6 +168,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
+
 
     /**
      * 注册基本任务
