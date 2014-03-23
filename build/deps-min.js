@@ -1,0 +1,1 @@
+KISSY.config("modules",{"bee-demo/index":{requires:["bee-demo/mods/header","bee-demo/mods/article"]},"bee-demo/mods/header":{requires:["node"]},"bee-demo/mods/article":{requires:["node"]}});
