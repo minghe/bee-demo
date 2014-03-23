@@ -16,7 +16,7 @@ module.exports = function (grunt) {
             options: {
                 depFilePath: '<%=buildBase %>/deps.js',
                 comboOnly:true,
-                fixModuleName:false,
+                fixModuleName:true,
                 comboMap:true,
                 packages: [
                     {
@@ -94,8 +94,8 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: '<%= srcBase %>',
                     dest: '<%=buildBase %>',
-                    src: ['app/**/*.less', 'pages/**/*.less', 'components/**/*.less', '!**/_*.less'],
-                    ext: '.less.css'
+                    src: ['**/*.less'],
+                    ext: '.css'
                 }]
             }
         },
@@ -138,19 +138,13 @@ module.exports = function (grunt) {
         },
 
         watch: {
-            jshint: {
-                files: ['<%= srcBase %>/app/**/*.js', '<%= srcBase %>/pages/**/*.js', '<%= srcBase %>/components/**/*.js'],
-                tasks: ['jshint']
-            },
             less: {
                 files: ['<%= srcBase %>/**/*.less'],
                 tasks: ['less:dev']
             },
-            livereload: {
-                options: {
-                    livereload: true
-                },
-                files: ['<%= srcBase %>/**/*.css', '<%= srcBase %>/**/*.js']
+            kmc: {
+                files: ['<%= srcBase %>/**/*.js'],
+                tasks: ['kmc:main']
             }
         }
     });
@@ -198,14 +192,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');
-
-
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     /**
      * 注册基本任务
      */
-    grunt.registerTask('default', addTimerTask(['clean','copy:all','kmc:main', 'cssmin:build', 'uglify:build']));
-    grunt.registerTask('style', addTimerTask(['less:build', 'cssmin:build']));
-    grunt.registerTask('dev', ['less:dev']);
+    grunt.registerTask('default', addTimerTask(['clean','copy:all','kmc:main','less:dev','less:build', 'cssmin:build', 'uglify:build']));
+    grunt.registerTask('style', addTimerTask(['less:dev','less:build', 'cssmin:build']));
+    grunt.registerTask('dev', ['watch']);
 
 };

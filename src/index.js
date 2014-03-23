@@ -1,4 +1,4 @@
-KISSY.add(function(S, require){
+KISSY.add('bee-demo/index',['./mods/header', './mods/article'], function(S, require){
 
     //初始化header模块
     var header = require('./mods/header');

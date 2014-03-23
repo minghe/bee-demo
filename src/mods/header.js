@@ -1,4 +1,4 @@
-KISSY.add(function(S,require){
+KISSY.add('bee-demo/mods/header',['node'], function(S,require){
     var $ = require('node').all;
     return {
         init:function(){
