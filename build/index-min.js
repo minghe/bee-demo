@@ -1,1 +1,1 @@
-KISSY.add(function(a,b){var c=b("./mods/header");c.init();var d=b("./mods/article");d.init()});
+KISSY.add("bee-demo/index",["./mods/header","./mods/article"],function(a,b){var c=b("./mods/header");c.init();var d=b("./mods/article");d.init()});
