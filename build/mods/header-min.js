@@ -1,1 +1,0 @@
-KISSY.add("bee-demo/mods/header",["node"],function(a,b){var c=b("node").all;return{init:function(){a.log("header init"),c("header").html("use bee-demo/mods/header")}}});

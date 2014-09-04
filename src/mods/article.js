@@ -1,9 +1,7 @@
-KISSY.add('bee-demo/mods/article',['node'], function(S,require){
-    var $ = require('node').all;
-    return {
-        init:function(){
-            S.log('article init');
-            $('article').html('use bee-demo/mods/article');
-        }
+var $ = require('node').all;
+module.exports = {
+    init:function(){
+        S.log('article init');
+        $('article').html('this is article');
     }
-});
+}
