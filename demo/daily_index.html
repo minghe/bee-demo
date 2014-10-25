@@ -18,6 +18,19 @@
                 }
             ]}
         );
+
+        if(KISSY.config('debug')){
+            KISSY.config({
+                packages: [
+                    {
+                        name: 'bee-demo',
+                        base: '../build',
+                        ignorePackageNameInUri: true,
+                        combine:false
+                    }
+                ]}
+            );
+        }
     </script>
 
 
