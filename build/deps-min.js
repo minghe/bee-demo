@@ -1,1 +1,1 @@
-KISSY.config("modules",{"bee-demo/index":{requires:["./mods/header","./mods/article"]}});
+KISSY.config("requires",{"bee-demo/index":["./mods/header","./mods/article"],"bee-demo/mods/article":["node","./content-render"],"bee-demo/mods/content-render":["./content","kg/xtemplate/3.3.3/runtime"],"bee-demo/mods/header":["node"]});

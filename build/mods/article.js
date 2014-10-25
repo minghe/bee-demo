@@ -1,0 +1,14 @@
+KISSY.add('bee-demo/mods/article',["node","./content-render"],function(S ,require, exports, module) {
+var $ = require('node').all;
+var contentRender = require('./content-render');
+module.exports = {
+    init:function(){
+        S.log('article init');
+        var html = contentRender({
+            title:'this is article',
+            content:'render by kg/xtemplate'
+        });
+        $('article').html(html);
+    }
+}
+});

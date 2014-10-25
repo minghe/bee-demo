@@ -1,9 +1,0 @@
-{
-    "name": "xcake-demo",
-    "version": "0.0.1",
-    "type": "xcake",
-    "options": {
-        "packageName": "xcake-demo",
-        "repo": "tb/xcake-demo"
-    }
-}
