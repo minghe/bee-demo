@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>开发阶段demo</title>
+    <meta charset="UTF-8">
+    <!-- 引入seed -->
+    <script src="http://g.tbcdn.cn/kissy/k/1.4.8/??seed-min.js,import-style-min.js" data-config="{combine:true}"></script>
+
+    <!-- 配置模块 -->
+    <script>
+        var base = '../build';
+        //url带有ks-debug
+        if(KISSY.config('debug')){
+            base = 'http://localhost:5555/bee-demo/';
+        }
+        KISSY.config({
+            packages: [
+                {
+                    name: 'bee-demo',
+                    base: base,
+                    ignorePackageNameInUri: true,
+                    debug: true,
+                    combine:false
+                }
+            ]}
+        );
+    </script>
+
+
+    <!--引入样式-->
+    <script>
+        KISSY.importStyle('bee-demo/index.css');
+    </script>
+</head>
+<body>
+
+<header>
+
+</header>
+
+<article>
+
+</article>
+
+<!--初始化脚本-->
+<script>
+    KISSY.use('bee-demo/index');
+</script>
+</body>
+</html>

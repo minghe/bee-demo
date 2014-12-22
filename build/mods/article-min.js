@@ -1,0 +1,1 @@
+KISSY.add("bee-demo/mods/article",["node","./content-render"],function(e,t,n,i){var r=t("node").all,o=t("./content-render");i.exports={init:function(){e.log("article init");var t=o({title:"this is article",content:"render by kg/xtemplate"});r("article").html(t)}}});
