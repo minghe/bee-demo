@@ -1,4 +1,4 @@
-KISSY.add('bee-demo/mods/header',["node"],function(S ,require, exports, module) {
+KISSY.add('bee-demo/header/header',["node"],function(S ,require, exports, module) {
  var $ = require('node').all;
 module.exports = {
     init:function(){

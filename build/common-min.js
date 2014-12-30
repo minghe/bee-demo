@@ -1,1 +1,0 @@
-KISSY.add("bee-demo/common",["./mods/header"],function(d,e){var o=e("./mods/header");o.init()});

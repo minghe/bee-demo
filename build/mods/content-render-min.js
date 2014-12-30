@@ -1,1 +1,0 @@
-KISSY.add("bee-demo/mods/content-render",["./content","kg/xtemplate/3.3.3/runtime"],function(e,n,t,r){var o=n("./content"),m=n("kg/xtemplate/3.3.3/runtime"),a=new m(o);r.exports=function(){return a.render.apply(a,arguments)}});

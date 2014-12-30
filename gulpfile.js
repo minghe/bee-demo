@@ -8,6 +8,8 @@ var filter = require('gulp-filter');
 var minify = require('gulp-minify');
 var XTemplate = require('xtemplate');
 var gulpXTemplate = require('gulp-xtemplate');
+var path = require('path');
+var fs = require('fs');
 var src = "./src",
     dest = "./build";
 
@@ -29,6 +31,17 @@ kmc.server({
     kissy:true
 });
 
+
+var dirs = fs.readdirSync(src);
+
+var kissyFiles = [];
+dirs.forEach(function(i){
+    var stat = fs.statSync(path.join(src,i));
+    //排除非版本号目录
+    if(stat.isFile()&&new RegExp(/.*\.js/).test(i)){
+        kissyFiles.push(i);
+    }
+});
 
 //使用kmc合并并编译kissy模块文件
 function renderKmc(fileName){
@@ -76,8 +89,7 @@ function renderKmc(fileName){
 
 
 gulp.task('kmc', function() {
-    //处理index.js
-    return renderKmc(['index']);
+    return renderKmc(kissyFiles);
 });
 
 gulp.task('mini-css', function(){
@@ -90,6 +102,9 @@ gulp.task('mini-css', function(){
 gulp.task('less', function(){
     return gulp.src([src+'/**/*.less'])
         .pipe(less())
+        .on('error',function(e){
+            console.log(e);
+        })
         .pipe(gulp.dest(src));
 });
 
@@ -99,7 +114,8 @@ gulp.task('xtpl',function(){
     return gulp.src(src+'/**/*.xtpl')
         .pipe(gulpXTemplate({
             wrap: 'kissy',
-            XTemplate: XTemplate
+            XTemplate: XTemplate,
+            renderJs: 'none'
         }))
         .on('error',function(e){
             console.log(e);
